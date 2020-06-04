@@ -17,18 +17,22 @@ using namespace std;
  *
  */
 
-#define filterWidth 5
-#define filterHeight 5
-#define factor 0.125
+#define filterWidth 9
+#define filterHeight 9
+#define factor 0.111
 #define bias 0.0
 
 int filter[filterHeight * filterWidth] =
 {
-  -1, -1, -1, -1, -1,
-  -1,  2,  2,  2, -1,
-  -1,  2,  8,  2, -1,
-  -1,  2,  2,  2, -1,
-  -1, -1, -1, -1, -1,
+  1, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 1, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 1, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 1, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 1, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 1, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 1, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 1, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 1,
 };
 
 __global__ void kRunFilter (int h, int w, int* filter, int* red, int* green, int* blue, int* outRed, int* outGreen, int* outBlue) {

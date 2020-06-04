@@ -16,19 +16,23 @@ using namespace std;
  *
  */
 
-#define filterWidth 5
-#define filterHeight 5
+#define filterWidth 9
+#define filterHeight 9
 
 double filter[filterHeight][filterWidth] =
 {
-  -1, -1, -1, -1, -1,
-  -1,  2,  2,  2, -1,
-  -1,  2,  8,  2, -1,
-  -1,  2,  2,  2, -1,
-  -1, -1, -1, -1, -1,
+  1, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 1, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 1, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 1, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 1, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 1, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 1, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 1, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 1,
 };
 
-double factor = 1.0 / 8.0;
+double factor = 1.0 / 9.0;
 double bias = 0.0;
 
 int main () {
